@@ -1,0 +1,12 @@
+<?php
+// rec24_player configuration
+
+// path to my.cnf
+$db_conf_path = '/home/sound/rec24/my.cnf';
+
+// replace paths to let clients access the storage.
+// Make sure to make symlink to the storage directory inside public www directory
+// and enable symlinks in http server config.
+$path_replace = array( '/home/recordings/' => './stor/' );
+
+?>

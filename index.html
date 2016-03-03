@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>rec24 browser web interface</title>
+	<script src="./inc/jquery-ui/external/jquery/jquery.js"></script>
+	<script src="./inc/jquery-ui/jquery-ui.js"></script>
+	<script type="text/javascript" src="./inc/jquery.mousewheel.js"></script>
+	<link rel="stylesheet" href="./inc/jquery-ui/jquery-ui.css"></link>
+	<link rel="stylesheet" href="./res/style.css"></link>
+	<script src="./res/util.js"></script>
+	<script src="./res/player.js"></script>
+	<script src="./res/rec24.js"></script>
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+</head>
+<body>
+	<!--<audio id="player1"></audio>
+	<audio id="player2"></audio>-->
+	<div id="maindiv">
+		<div id="loading_app"><p>rec24 is loading...</p></div>
+		<div id="player_dev" class="dev" style="display: none">
+			<div class="devhdr"><p class="wallclock"></p><p>digital audio player rec24-web</p></div>
+			<div class="opts">
+				<label for="origin_select">Select source:</label> <select id="origin_select"></select>
+				<label for="format_select">Select format:</label> <select id="format_select"></select>
+			</div>
+			<div id="audionav">
+				<div id="timedisplay">
+					<div>
+						<p class="state disp"><span class="c"></span></p>
+						<p class="desc">status</p>
+					</div>
+					<div>
+						<p class="datestr disp inlineeditable">
+							<input id="calendar" type="date" />
+							<span class="year"><span class="c"></span></span>-<span class="month"><span class="c"></span></span>-<span class="day" data-tsd="86400"><span class="c"></span></span>
+						</p>
+						<p class="desc">date</p>
+					</div>
+					<div>
+						<p class="timestr disp inlineeditable">
+							<input id="timeofday" type="time" />
+							<span class="hours" data-tsd="3600"><span class="c"></span></span>:<span class="minutes" data-tsd="60"><span class="c"></span></span>:<span class="seconds" data-tsd="4"><span class="c"></span></span>
+						</p>
+						<p class="desc">time</p>
+					</div>
+					<div>
+						<p class="tzstr disp inlineeditable">
+							<input id="timezone" type="text" />
+							<span class="c"></span>
+						</p>
+						<p class="desc">timezone</p>
+					</div>
+					<div>
+						<p class="volume disp"><span class="c"></span></p>
+						<p class="desc">volume (dB)</p>
+					</div>
+					<div>
+						<p class="disp">
+							<button id="settime_go">OK</button>
+							<button id="settime_cancel">Cancel</button>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div>
+				<button id="playpause">&#9658; / &#9646;&#9646;</button>
+				<button id="stop">&#9209;</button>
+				<span id="seek_buttons"></span>
+				<button id="vol_up">vol ↑</button><button id="vol_down">vol ↓</button>
+				<!--<button id="settime_show">Go to...</button>-->
+				<button id="download_show">Download...</button>
+			</div>
+			<!--<div class="opts" id="settime" style="display: none">
+				button id="settime_go">OK</button><button id="settime_cancel">Cancel</button>
+			</div>-->
+			<div class="opts" style="display: none" id="download_container">
+				<p>Download:</p>
+				<p id="download_content"><a id="download_link">...</a> (offset is <span id="download_offset"></span>)</p>
+				<button id="download_hide">Hide</button>
+			</div>
+		</div>
+		<div class="dev" id="log_dev" style="display: none">
+			<div class="devhdr"><p>log</p></div>
+			<div class="logs"><div class="logs_inner"></div></div>
+			<button id="log_close">Close</button>
+		</div>
+	</div>
+</body>
+</html>

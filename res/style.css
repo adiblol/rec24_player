@@ -1,0 +1,223 @@
+html, body, * {
+	padding: 0;
+	margin: 0;
+	border: none;
+	box-sizing: border-box;
+	cursor: default;
+	/*z-index: 0;*/
+}
+
+html, body {
+	font-family: sans-serif;
+	background: #555;
+	font-size: 10pt;
+	color: #000;
+}
+
+@media all and (min-width: 1024px) {
+	body {
+		margin: 1em;
+	}
+}
+select {
+	
+}
+
+#loading_app {
+	position: absolute;
+	z-index: 100;
+	width: 100%;
+	/*height: 100%;*/
+	top: 0;
+	left: 0;
+	right: 0;
+	color: #ddd;
+	font-size: 30pt;
+	text-align: center;
+}
+
+.opts {
+}
+.opts > * {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+#timedisplay {
+	background: #000;
+	color: #ccc;
+	font-family: monospace;
+	font-size: 20pt;
+	/*border-spacing: 1em 0;*/
+	padding: 0.6em;
+	/*display: table;*/
+}
+#timedisplay * {
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+#timedisplay div {
+	display: inline-block;
+	margin: 0;
+}
+#timedisplay .desc {
+	font-size: 8pt;
+	opacity: 0.6;
+}
+#timedisplay .disp {
+	color: #0f0;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	position: relative;
+}
+#timedisplay .disp * {
+	position: relative;
+}
+#timedisplay.invalid .disp {
+	color: #f00;
+}
+#timedisplay.delayed .disp {
+	color: #08f;
+}
+#timedisplay .state {
+	width: 5em;
+}
+
+.dev > div {
+	display: block;
+	padding: 0.5em;
+	border-bottom: 1px solid #020202;
+	background: linear-gradient(to bottom, #111, #222);
+}
+
+.dev {
+	background: #111;
+	border: 4px solid #000;
+	color: #fff;
+	margin-bottom: 0.9em;
+}
+
+.dev .devhdr p {
+	text-transform: uppercase;
+	opacity: 0.3;
+}
+.dev label {
+	opacity: 0.6;
+}
+
+button, select {
+	border: 1px outset #222;
+	background: linear-gradient(to top, #222, #555);
+	color: #fff;
+	padding: 0.2em;
+	cursor: pointer;
+}
+button:hover, select:hover {
+	background: linear-gradient(to top, #444, #666);
+}
+button:active, select:active {
+	border: 1px inset #222;
+	background: linear-gradient(to bottom, #444, #666);
+}
+button[disabled] {
+	color: #999 !important;
+	background: linear-gradient(to top, #222, #333) !important;
+	opacity: 0.8;
+}
+
+#timedisplay .datestr:hover, #timedisplay .hours:hover, #timedisplay .minutes:hover, #timedisplay .seconds:hover, #timedisplay .volume:hover, #timedisplay .state:hover {
+	background: linear-gradient(to bottom, #002, #043);
+	/*cursor: ns-resize;*/
+}
+#timedisplay .state:hover {
+	cursor: pointer;
+}
+
+.volume.disp {
+	text-align: right;
+}
+
+#meter_tab {
+	background: #000;
+	color: #fff;
+	border-spacing: 2px;
+	padding: 1em;
+	font-size: 8pt;
+}
+#meter_tab td {
+	background: #111;
+}
+
+.ledline td {
+	width: 2.6em;
+	height: 1em;
+}
+.ledline td.shine {
+	background: #0a8 !important;
+}
+.ledline td.shine_more {
+	background: #0f0 !important;
+}
+#meter_tab .legend {
+	color: #333;
+}
+#meter_tab .legend td {
+	background: none;
+}
+#log_dev .logs {
+	background: #000;
+	color: #0b9;
+	height: 4em;
+	margin: 1em;
+	overflow: auto;
+}
+#log_dev .logs p {
+	font-size: 8pt;
+	border-bottom: 1px dashed #555;
+	padding: 1px;
+}
+
+
+.c, .down, .up {
+	/*position: absolute !important;*/
+}
+.down, .up {
+	color: #555;
+	position: absolute !important;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+.down:hover, .up:hover {
+	color: #777;
+}
+.down:active, .up:active {
+	color: #0ff;
+}
+.down {
+	top: 1em;
+}
+.up {
+	bottom: 1em;
+}
+
+.wallclock {
+	float: right;
+	color: #0c9;
+	opacity: 1 !important;
+}
+
+.disp input, .disp button {
+	display: none;
+	font-size: inherit;
+	font-family: inherit;
+	color: #11f;
+	background: #111;
+}
+.disp input {
+	position: absolute !important;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+}
