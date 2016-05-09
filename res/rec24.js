@@ -126,7 +126,9 @@ $(window).load(function() {
 		if (!($(this).hasClass('inlineeditable'))) return true;
 		if (document.activeElement.tagName=='INPUT') return false;
 		fill_set_time();
-		$(this).closest('.disp').find('input').fadeIn().focus();
+		$('#timedisplay .disp input').fadeIn(); 
+		$(this).closest('.disp').find('input').focus();
+
 		$('#timedisplay button').fadeIn();
 		return true;
 	});
