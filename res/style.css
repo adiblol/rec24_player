@@ -221,3 +221,8 @@ button[disabled] {
 	width: 100%;
 	z-index: 100;
 }
+
+.helptext {
+	opacity: 0.6;
+	font-size: 85%;
+}

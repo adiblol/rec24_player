@@ -124,10 +124,10 @@ $(window).load(function() {
 	$('#timedisplay .disp').click(function(ev) {
 		//console.log(document.activeElement.tagName);
 		if (!($(this).hasClass('inlineeditable'))) return true;
-		if (document.activeElement.tagName=='INPUT') return false;
+		if (document.activeElement.tagName=='INPUT') return true;
 		fill_set_time();
 		$('#timedisplay .disp input').fadeIn(); 
-		$(this).closest('.disp').find('input').focus();
+		$(this).closest('.disp').find('input').focus().select();
 
 		$('#timedisplay button').fadeIn();
 		return true;
@@ -146,6 +146,29 @@ $(window).load(function() {
 	$('#timedisplay .minutes').mousewheel(function(ev) { wp.change_ts(ev.deltaY*60); });
 	$('#timedisplay .seconds').mousewheel(function(ev) { wp.change_ts(ev.deltaY); });
 	$('#timedisplay .volume').mousewheel(function(ev) { wp.change_vol(ev.deltaY); });
+
+	$(document).keypress(function(e) {
+		if ((e.target.tagName=='INPUT') || (e.target.tagName=='SELECT')) return true;
+		var delta = 0;
+		if (e.keyCode==37) delta = -10; else // left
+		if (e.keyCode==39) delta = 10; else  // right
+		if (e.keyCode==40) delta = -60; else // down
+		if (e.keyCode==38) delta = 60; else  // up
+		if (e.keyCode==34) delta = -600; else // pgDn
+		if (e.keyCode==33) delta = 600; else  // pgUp
+		if (e.key=='/') wp.change_vol(-1); else
+		if (e.key=='*') wp.change_vol(1); else
+		if (e.key==',') delta = -3600; else
+		if (e.key=='.') delta = 3600; else
+		if (e.key=='n') delta = -86400; else
+		if (e.key=='m') delta = 86400; else
+		if (e.key=='e') $('#timedisplay .datestr').click(); else
+		if (e.key==' ') wp.playpause(); else
+			return true;
+		if (delta!=0) wp.change_ts(delta);
+		e.preventDefault();
+	});
+
 
 	$('#timedisplay .volume .up').click(function(ev) { wp.change_vol(1); return false; });
 	$('#timedisplay .volume .down').click(function(ev) { wp.change_vol(-1); return false; });
@@ -188,6 +211,9 @@ $(window).load(function() {
 		});
 		$('#download_content').before(elem);
 		elem.change();
+	});
+	$('#download_hide').click(function() {
+		$('#download_container').slideUp();
 	});
 
 });
